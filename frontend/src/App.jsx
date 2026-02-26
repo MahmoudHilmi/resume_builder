@@ -4,7 +4,7 @@ import './App.css'
 import Home from './pages/Home'
 import Layout from './pages/Layout'
 import Dashboard from './pages/Dashboard';
-import Preview from './pages/Preview';
+import Preview from './pages/preview';
 import ResumeBuilder from './pages/ResumeBuilder';
 import Login from './pages/Login';
 
