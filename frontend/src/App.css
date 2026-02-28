@@ -9,4 +9,9 @@
       button{
             @apply cursor-pointer
       }
+      input:not([type="checkbox"]){
+            @apply outline-none border border-gray-300 focus:ring-blue-500 focus:border-blue-500 rounded-md px-3 py-2 transition-all duration-300 rounded-lg
+      }
+      textarea{
+            @apply = outline-none focus-ring border border-gray-300 focus:ring-blue-500 focus:border-blue-500 rounded-lg resize-none px-3 py-2 transition-all duration-300}
 }
