@@ -40,15 +40,20 @@ const Dashboard = () => {
   const editTitle = async (e) => {
     e.preventDefault();
   };
-  const deleteResume = async (e) => {
- 
-    const confirm = window.confirm("Are you sure you want to delete this resume?");
-    if(confirm){
-      setAllResumes(prev => prev.filter(resume => resume._id !== resumeId));
-      alert("Resume deleted successfully!");
-    }
-    e.preventDefault();
-  };
+  
+const deleteResume = (id) => {
+  const confirmDelete = window.confirm(
+    "Are you sure you want to delete this resume?"
+  );
+
+  if (confirmDelete) {
+    setAllResumes(prev => 
+      prev.filter(resume => resume._id !== id)
+    );
+
+    alert("Resume deleted successfully!");
+  }
+};
 
   useEffect(() => {
     loadAllResumes();
@@ -104,7 +109,7 @@ const Dashboard = () => {
             return (
               <button
                 key={index}
-                onClick={()=> navigate(`/spp/builder/${resume._id}`)}
+                onClick={()=> navigate(`/app/builder/${resume._id}`)}
                 className="relative w-full sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 border group hover:shadow-lg transition-all duration-300 cursor-pointer"
                 style={{
                   background: `linear-gradient(135deg, ${baseColor}10, ${baseColor}50),
