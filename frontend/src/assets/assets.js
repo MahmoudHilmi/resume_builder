@@ -3,7 +3,7 @@ import dummy_profile from './dummy_profile.png'
 export const dummyResumeData = [
     {
         // ----------------------------------------------------- Resume 1 ------------------------------------------------------
-        personalInfo: {
+        personal_info: {
             full_name: "Alex Smith",
             email: "alex@example.com",
             phone: "0 123456789",
@@ -86,7 +86,7 @@ export const dummyResumeData = [
     },
     {
         // ----------------------------------------------------- Resume 2 ------------------------------------------------------
-        personalInfo: {
+        personal_info: {
             full_name: "Jordan Lee",
             email: "jordan.lee@example.com",
             phone: "0 987654321",
@@ -161,7 +161,7 @@ export const dummyResumeData = [
     },
     {
         // ----------------------------------------------------- Resume 3 ------------------------------------------------------
-        personalInfo: {
+        personal_info: {
             full_name: "Riley Morgan",
             email: "riley.morgan@example.com",
             phone: "0 1122334455",

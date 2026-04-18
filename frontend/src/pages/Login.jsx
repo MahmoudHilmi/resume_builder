@@ -6,14 +6,10 @@ import AuthToggle from '../components/auth/authToggle';
 
 
 const Login = () => {
-  const [isLogin, setIsLogin] = useState(true)
   return (
-<div className="w-full flex flex-col items-center justify-center">
-
-      {isLogin ? <LoginForm /> : <SignupForm />}
-
-
-</div>
+    <div className="w-full flex flex-col items-center justify-center">
+      <LoginForm />
+    </div>
   )
 }
 

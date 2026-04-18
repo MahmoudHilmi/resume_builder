@@ -1,12 +1,11 @@
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const NavBar = () => {
-  const user = { name: "John Doe" };
-
+  const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
-  const logoutuser = () => {
+  const logoutuser = async () => {
+    await signOut();
     navigate("/");
   }
  
@@ -18,7 +17,9 @@ const NavBar = () => {
         </Link>
 
         <div className="flex items-center gap-4 text-sm">
-          <p className="max-sm:hidden">Hi, {user.name}</p>
+          <p className="max-sm:hidden">
+            Hi, {user?.user_metadata?.full_name || user?.email?.split('@')[0] || "User"}
+          </p>
           <button onClick={logoutuser} className="bg-white hover:bg-slate-50 border border-gray-300 px-7 py-1.5 rounded-full active:scale-95 transition-all">
             Logout
           </button>

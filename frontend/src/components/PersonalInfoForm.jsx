@@ -15,7 +15,7 @@ const ALLOWED_TYPES = ["image/jpeg", "image/png"];
 
 const fields = [
   {
-    key: "full_Name",
+    key: "full_name",
     label: "Full Name",
     icon: User,
     type: "text",
