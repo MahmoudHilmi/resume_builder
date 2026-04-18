@@ -5,8 +5,8 @@ import './App.css'
 import Home from './pages/Home'
 import Layout from './pages/Layout'
 import Dashboard from './pages/Dashboard';
-import Preview from './pages/preview';
-import ResumeBuilder from './pages/ResumeBuilder';
+import Preview from './pages/Preview';
+import ResumeBuilder from './pages/resumeBuilder';
 import Login from './pages/Login';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
