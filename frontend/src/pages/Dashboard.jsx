@@ -7,7 +7,8 @@ import {
   XIcon,
 } from "lucide-react";
 import { dummyResumeData } from "../assets/assets";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 // ─── constants ────────────────────────────────────────────────────────────────
@@ -69,17 +70,15 @@ const ModalActions = ({ onCancel, submitLabel }) => (
 // ─── Dashboard ────────────────────────────────────────────────────────────────
 const Dashboard = () => {
   const { user } = useAuth();
-  const [allResumes, setAllResumes]     = useState([]);
+  const [allResumes, setAllResumes]     = useState(dummyResumeData);
   const [showCreate, setShowCreate]     = useState(false);
   const [showUpload, setShowUpload]     = useState(false);
   const [editResumeId, setEditResumeId] = useState(null);
   const [title, setTitle]               = useState("");
   const [resumeFile, setResumeFile]     = useState(null);
-  const [deleteId, setDeleteId]         = useState(null); // replaces window.confirm
+  const [deleteId, setDeleteId]         = useState(null);
 
   const navigate = useNavigate();
-
-  useEffect(() => { setAllResumes(dummyResumeData); }, []);
 
   // ── close helpers (always reset shared state) ──
   const closeCreate = () => { setShowCreate(false);  setTitle(""); };

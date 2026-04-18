@@ -61,25 +61,22 @@ const ResumeBuilder = () => {
   const { resumeId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  const [resumeData, setResumeData] = useState(INITIAL_DATA);
+  const [resumeData, setResumeData] = useState(() => {
+    const resume = dummyResumeData?.find((r) => r._id === resumeId);
+    return resume || INITIAL_DATA;
+  });
   const [removeBackground, setRemoveBackground] = useState(false);
   const [showPreview, setShowPreview] = useState(false); // mobile preview toggle
 
   // Determine active section from URL
   const currentPath = location.pathname.split("/").pop();
   const activeSectionIndex = Math.max(0, SECTIONS.findIndex(s => s.id === currentPath));
-  const activeSection = SECTIONS[activeSectionIndex];
 
-  // ── load existing resume ──
+  // ── update document title ──
   useEffect(() => {
-    if (!resumeId) return;
-    const resume = dummyResumeData?.find((r) => r._id === resumeId);
-    if (resume) {
-      setResumeData(resume);
-      document.title =
-        resume.title || resume.personal_info?.full_name || "Resume Builder";
-    }
-  }, [resumeId]);
+    document.title =
+      resumeData.title || resumeData.personal_info?.full_name || "Resume Builder";
+  }, [resumeData.title, resumeData.personal_info?.full_name]);
 
   const goTo = (i) => {
     const nextSection = SECTIONS[Math.max(0, Math.min(i, SECTIONS.length - 1))];
